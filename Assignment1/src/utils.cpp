@@ -83,10 +83,10 @@ void createBuffer(vk::PhysicalDevice &pDevice, vk::Device &device,
 void copyBuffer(vk::Device &device, vk::Queue &q, vk::CommandPool &commandPool,
                 const vk::Buffer &srcBuffer, vk::Buffer &dstBuffer, vk::DeviceSize byteSize)
 {
-    vk::CommandBuffer cb = beginSingleTimeCommands(device, commandPool);
-    vk::BufferCopy region(0, 0, byteSize); // srcOffset, dstOffset, size
-    cb.copyBuffer(srcBuffer, dstBuffer, 1, &region);
-    endSingleTimeCommands(device, q, commandPool, cb);
+    vk::CommandBuffer commandBuffer = beginSingleTimeCommands(device, commandPool);
+    vk::BufferCopy region(0ULL, 0ULL, byteSize);
+    commandBuffer.copyBuffer(srcBuffer, dstBuffer, 1, &region);
+    endSingleTimeCommands(device, q, commandPool, commandBuffer);
 }
 
 vk::CommandBuffer beginSingleTimeCommands(vk::Device &device, vk::CommandPool &commandPool)

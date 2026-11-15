@@ -26,4 +26,8 @@ void main() {
     //grab global ID
     uint gIDx = gl_GlobalInvocationID.x;
     uint gIDy = gl_GlobalInvocationID.y;
+
+   	if (gIDx >= p.w || gIDy >= p.h) return; 
+	v2[ gIDx * p.h + (p.h - gIDy - 1) ] = v1[ gIDy * p.w + gIDx ];
+	
 } 
