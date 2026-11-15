@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/shaders/matrixRotNaive.comp
+
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/shaders/matrixRotOpti.comp
+
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/shaders/vectorAdd.comp
+

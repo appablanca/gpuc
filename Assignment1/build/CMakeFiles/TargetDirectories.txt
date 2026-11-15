@@ -1,0 +1,3 @@
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/build/CMakeFiles/Assignment1.dir
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/build/CMakeFiles/edit_cache.dir
+/Users/feyzigundogdu/workspace/gpuc/Assignment1/build/CMakeFiles/rebuild_cache.dir
