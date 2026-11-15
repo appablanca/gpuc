@@ -11,6 +11,9 @@ CMakeFiles/
 # Per-machine GPU choice made by the framework on first run
 device_selection_cache
 
+# Hand-in archives (make handin)
+*.zip
+
 # RenderDoc captures
 *.rdc
 
