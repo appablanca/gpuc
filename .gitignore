@@ -1,0 +1,23 @@
+# Build output (CMake, object files, binaries, compiled .spv shaders)
+build/
+**/build/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+*.o
+*.o.d
+*.spv
+
+# Per-machine GPU choice made by the framework on first run
+device_selection_cache
+
+# RenderDoc captures
+*.rdc
+
+# macOS
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp

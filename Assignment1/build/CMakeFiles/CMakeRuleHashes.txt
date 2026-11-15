@@ -1,4 +1,0 @@
-# Hashes of file build rules.
-74e6c18e1777d75f10527e70f5d501c2 shaders/matrixRotNaive.comp.spv
-92732ea0e3f140bdceda4bebbd723579 shaders/matrixRotOpti.comp.spv
-2600a287610ca1cc7ce58eac3148b46b shaders/vectorAdd.comp.spv
