@@ -22,7 +22,7 @@ layout(push_constant) uniform PushStruct {
 } p;
 
 
-shared int[gl_WorkGroupSize.x*gl_WorkGroupSize.y] shared_ints;
+shared int[(gl_WorkGroupSize.x + 1) * gl_WorkGroupSize.y] shared_ints;
 
 void main() {
     // global IDs
@@ -31,8 +31,26 @@ void main() {
     // work group sizes
     uint lSizeX = gl_WorkGroupSize.x;
     uint lSizeY = gl_WorkGroupSize.y;
+    uint stride = lSizeX + 1;
     //  local IDs
     uint lIDx = gl_LocalInvocationID.x;
     uint lIDy = gl_LocalInvocationID.y;
 
-} 
+    if (gIDx < p.w && gIDy < p.h)
+        shared_ints[lIDy * stride + lIDx] = v1[gIDy * p.w + gIDx];
+
+    barrier();
+
+    uint i = gl_LocalInvocationIndex;
+    uint r = i / lSizeY;
+    uint c = i % lSizeY;
+
+    uint outRow = gl_WorkGroupID.x * lSizeX + r;
+    uint ly = lSizeY - 1 - c;
+    uint inY = gl_WorkGroupID.y * lSizeY + ly;
+
+    if (outRow < p.w && inY < p.h) {
+        uint outCol = p.h - 1 - inY;
+        v2[outRow * p.h + outCol] = shared_ints[ly * stride + r];
+    }
+}
